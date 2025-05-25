@@ -5,7 +5,7 @@
               <i class="bi bi-clipboard-plus text-primary" style="font-size: 2.5rem;"></i>
               <h5 class="card-title mt-3">Kunjungan UKS</h5>
               <p class="card-text">Catat kunjungan dan keluhan kesehatan Anda.</p>
-              <a href="kunjungan-siswa.html" class="btn btn-outline-primary btn-sm">Kunjungi</a>
+              <a href="/kunjungan" class="btn btn-outline-primary btn-sm">Kunjungi</a>
             </div>
           </div>
         </div>

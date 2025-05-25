@@ -42,31 +42,45 @@
       </div>
     </div>
   </div>
+  
+<FooterVue/>
 </template>
 
 
 <script setup>
 import { ref } from 'vue';
+import FooterVue from '../components/Footer/Footer.vue';
 import { links } from '../configs/hooks';
 
 
+//State mengambil data yang mau diinput
 const email = ref();
 const password = ref();
 
+//handleLogin 
 const login = async () => {
   try {
+    //Axios State Fetch
     const response = await links.post('login', {
+      //Menggunakan State yang sudah di inisiasi diatas
       password : password.value,
       email : email.value
     });
+    //konstanta token untuk menyimpan token setelah login
      const token = localStorage.setItem('token', response.data.token);
+     //konstanta/variabel untuk menyimpan username yang didapatkan dari api
+     const username = localStorage.setItem('name', response.data.user.name)
+     //cek username sudah diinisiasi atau belum
+     console.log(username)
+     //cek token sudah tersimpan
     console.log('Token Saved', token);
+    //redirect ke window Dashboard
     window.location.href = '/dashboard'
+    //
   } catch (error) {
     alert('Login gagal')
     console.log(error) 
   }
 }
 
-// TODO: Fetch data from Laravel API using axios here
 </script>
