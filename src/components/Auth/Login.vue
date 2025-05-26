@@ -7,7 +7,7 @@
             <div class="card-body p-4">
               <div class="text-center mb-4">
                 <i class="bi bi-hospital text-primary" style="font-size: 3rem;"></i>
-                <h2 class="mt-2">Sistem UKS</h2>
+                <h2 class="mt-2">UKS SMKTH</h2>
                 <p class="text-muted">Silakan login untuk melanjutkan</p>
               </div>
 
@@ -34,7 +34,7 @@
               </form>
 
               <div class="text-center mt-3">
-                <p>Belum punya akun? <a href="register.html" class="text-decoration-none">Daftar disini</a></p>
+                <p>Belum punya akun? <a href="/register" class="text-decoration-none">Daftar disini</a></p>
               </div>
             </div>
           </div>
@@ -42,45 +42,41 @@
       </div>
     </div>
   </div>
-  
-<FooterVue/>
+
+  <FooterVue />
 </template>
 
-
 <script setup>
-import { ref } from 'vue';
-import FooterVue from '../components/Footer/Footer.vue';
-import { links } from '../configs/hooks';
+import { ref } from 'vue'
+import FooterVue from '../Footer/Footer.vue'
+import { links } from '../../configs/hooks'
 
+const email = ref()
+const password = ref()
 
-//State mengambil data yang mau diinput
-const email = ref();
-const password = ref();
-
-//handleLogin 
 const login = async () => {
   try {
-    //Axios State Fetch
     const response = await links.post('login', {
-      //Menggunakan State yang sudah di inisiasi diatas
-      password : password.value,
-      email : email.value
-    });
-    //konstanta token untuk menyimpan token setelah login
-     const token = localStorage.setItem('token', response.data.token);
-     //konstanta/variabel untuk menyimpan username yang didapatkan dari api
-     const username = localStorage.setItem('name', response.data.user.name)
-     //cek username sudah diinisiasi atau belum
-     console.log(username)
-     //cek token sudah tersimpan
-    console.log('Token Saved', token);
-    //redirect ke window Dashboard
-    window.location.href = '/dashboard'
-    //
+      email: email.value,
+      password: password.value
+    })
+
+    localStorage.setItem('token', response.data.token)
+    localStorage.setItem('name', response.data.user.name)
+
+    const role = response.data.user.role
+    console.log(role);
+
+    if (role === 'petugas') {
+      window.location.href = '/admin-dashboard'
+    } else if (role === 'siswa') {
+      window.location.href = '/dashboard'
+    } else {
+      window.location.href = '/'
+    }
   } catch (error) {
     alert('Login gagal')
-    console.log(error) 
+    console.error(error)
   }
 }
-
 </script>
