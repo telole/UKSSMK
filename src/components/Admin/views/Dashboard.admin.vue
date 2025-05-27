@@ -87,7 +87,7 @@ const fetchRecentConsultations = async () => {
     const response = await links.get('konsultasi');
     recentConsultations.value = response.data
       .filter(item => item.jawaban === null) 
-      .slice(-5) 
+      .slice(-3) 
       .reverse();
   } catch (error) {
     console.error('Gagal mengambil data konsultasi:', error);

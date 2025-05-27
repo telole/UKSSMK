@@ -345,16 +345,20 @@ const getStatus = (stok) => {
 
 const filteredObat = computed(() => {
   return daftarObat.value.filter(obat => {
-    const searchMatch = obat.nama_obat.toLowerCase().includes(searchQuery.value.toLowerCase()) || 
-                       obat.deskripsi.toLowerCase().includes(searchQuery.value.toLowerCase())
-    let stockMatch = true
-    if (stokFilter.value === 'tersedia') stockMatch = obat.stok > 5
-    else if (stokFilter.value === 'menipis') stockMatch = obat.stok > 0 && obat.stok <= 5
-    else if (stokFilter.value === 'habis') stockMatch = obat.stok === 0
-    
-    return searchMatch && stockMatch
+    const searchMatch = obat.nama_obat.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+                        (obat.deskripsi && obat.deskripsi.toLowerCase().includes(searchQuery.value.toLowerCase()))
+    let stokMatch = true
+    if (stokFilter.value === 'tersedia') {
+      stokMatch = obat.stok > 5
+    } else if (stokFilter.value === 'menipis') {
+      stokMatch = obat.stok > 0 && obat.stok <= 5
+    } else if (stokFilter.value === 'habis') {
+      stokMatch = obat.stok === 0
+    }
+    return searchMatch && stokMatch
   })
 })
+
 
 const totalPages = computed(() => Math.ceil(filteredObat.value.length / perPage))
 

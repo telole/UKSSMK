@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="artikel-petugas.html">
+                        <a class="nav-link" href="/admin-artikel">
                             <i class="bi bi-journal-text me-1"></i>Artikel Kesehatan
                         </a>
                     </li>

@@ -15,6 +15,8 @@ import DetailKunjungans from "../components/Stuff/Detail-Kunjungans.vue"
 import DetailKunjungan from "../components/Admin/stuff/Detail.kunjungan.vue"
 import Visiting from "../components/Admin/views/Visiting.vue"
 import Obat from "../components/Admin/views/Obat.vue"
+import ArticleAdmin from "../components/Admin/views/Article.admin.vue"
+import Consultant from "../components/Admin/views/Consultant.vue"
 
 const routes = [
   {
@@ -99,6 +101,18 @@ const routes = [
     path : '/obat',
     name : 'pel',
     component : Obat,
+    meta : {requiresAuth : true}
+  },
+  {
+    path : '/admin-artikel',
+    name : 'kkk',
+    component : ArticleAdmin,
+    meta : {requiresAuth : true}
+  },
+  {
+    path : '/admin-konsultasi',
+    name : 'akow',
+    component : Consultant,
     meta : {requiresAuth : true}
   },
   
