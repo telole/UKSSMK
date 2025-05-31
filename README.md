@@ -43,14 +43,33 @@ Sistem UKS (Unit Kesehatan Sekolah) adalah aplikasi berbasis web untuk memudahka
     ```bash
     npm start
     ```
-    
 
 5. Akses aplikasi melalui `http://localhost:3000` di browser.
 
-## Struktur Direktori
-/src
-/models # Model untuk database
-/routes # Endpoint API
-/controllers # Logika pengelolaan data
-/views # Tampilan aplikasi web
-/assets # Berkas statis (gambar, CSS, dll.)
+
+## Teknologi yang Digunakan
+
+- **Frontend**: Vue.js
+- **Backend**: Laravel
+- **Database**: MySQL / MongoDB
+- **Authentication**: JWT (JSON Web Token)
+- **UI**: Bootstrap 5
+
+## Role-Based Access Control (RBAC)
+
+Aplikasi ini memiliki dua peran utama:
+
+- **Siswa**: Akses untuk menginput keluhan, membaca artikel kesehatan, bertanya di konsultasi online, dan melaporkan kejadian darurat.
+- **Petugas UKS**: Akses lebih luas untuk manajemen artikel, pencatatan kunjungan UKS, manajemen obat, serta menanggapi konsultasi online dan laporan darurat.
+
+## Kontribusi
+
+1. Fork repositori ini.
+2. Buat branch baru (`git checkout -b fitur-baru`).
+3. Lakukan perubahan dan commit (`git commit -am 'Menambahkan fitur baru'`).
+4. Push ke branch baru (`git push origin fitur-baru`).
+5. Buat Pull Request ke branch `main`.
+
+## Lisensi
+
+Distribusi kode ini dilisensikan di bawah **MIT License** - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
