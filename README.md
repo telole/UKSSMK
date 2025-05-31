@@ -16,9 +16,9 @@ Vue.js is a progressive JavaScript framework used to build modern web applicatio
 
 ## Installation
 
-### Using CDN
+### Clone Repo
 
-To use Vue.js with a CDN, include the following script tag in your HTML file:
+Clone Repo
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>
+```bash
+[<script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>](https://github.com/telole/UKSSMK.git)
