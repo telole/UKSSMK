@@ -52,7 +52,7 @@ Sistem UKS (Unit Kesehatan Sekolah) adalah aplikasi berbasis web untuk memudahka
 - **Frontend**: Vue.js
 - **Backend**: Laravel
 - **Database**: MySQL / MongoDB
-- **Authentication**: JWT (JSON Web Token)
+- **Authentication**: BearerToken
 - **UI**: Bootstrap 5
 
 ## Role-Based Access Control (RBAC)
