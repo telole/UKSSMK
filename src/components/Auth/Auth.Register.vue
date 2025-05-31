@@ -16,10 +16,6 @@
               </div>
 
               <div class="row mb-3">
-                <!-- <div class="col-md-6 mb-3 mb-md-0">
-                  <label for="username" class="form-label">Username</label>
-                  <input v-model="data.username" type="text" class="form-control" id="username" placeholder="Masukkan username" required>
-                </div> -->
                 <div class="col-md-6">
                   <label for="email" class="form-label">Email</label>
                   <input v-model="data.email" type="email" class="form-control" id="email" placeholder="Masukkan email" required>
@@ -38,21 +34,8 @@
                  <div class="col-md-6 mb-3">
                     <label for="nis" class="form-label">NIS</label>
                     <input v-model="data.nis" type="text" class="form-control" id="nis" placeholder="Nomor Induk Siswa">
-                  </div>
-                <!-- <div class="col-md-6">
-                  <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
-                  <input v-model="data.password_confirmation" type="password" class="form-control" id="confirmPassword" placeholder="Konfirmasi password" required>
-                </div> -->
-                
+                  </div>                
               </div>
-
-              <!-- <div class="mb-3">
-                <div class="row">
-                  
-                 
-                </div>
-              </div> -->
-
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="agreeTerms" required>
                 <label class="form-check-label" for="agreeTerms">Saya menyetujui syarat dan ketentuan</label>
@@ -98,10 +81,6 @@ const register = async () => {
     errors.value = {}
     const res = await links.post('register', data.value)
     localStorage.setItem('name', res.data.data.name)
-    // localStorage.setItem('email', res.data.email)
-    // localStorage.setItem('nis', res.data.nis)
-    // localStorage.setItem('kelas', res.data.kelas)
-    // localStorage.setItem('role', res.data.role)
     localStorage.setItem('token', res.data.token)
 
     alert('Registrasi berhasil!')

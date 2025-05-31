@@ -17,6 +17,8 @@ import Visiting from "../components/Admin/views/Visiting.vue"
 import Obat from "../components/Admin/views/Obat.vue"
 import ArticleAdmin from "../components/Admin/views/Article.admin.vue"
 import Consultant from "../components/Admin/views/Consultant.vue"
+import DetailConsultation from "../components/Admin/stuff/Detail.consultation.vue"
+import UrgentCallsAdmin from "../components/Admin/views/UrgentCalls.admin.vue"
 
 const routes = [
   {
@@ -115,6 +117,18 @@ const routes = [
     component : Consultant,
     meta : {requiresAuth : true}
   },
+  {
+    path : '/detail-consultant/:id',
+    name : 'nenene',
+    component : DetailConsultation,
+    meta : {requiresAuth : true}
+  },
+    {
+      path : '/Urgent-Callls',
+      name : 'njakbwj',
+      component : UrgentCallsAdmin,
+      meta : {requiresAuth : true}
+    },
   
   
 

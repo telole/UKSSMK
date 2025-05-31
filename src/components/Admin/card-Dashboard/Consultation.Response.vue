@@ -3,11 +3,11 @@
         <div class="card h-100 border-info shadow-sm">
             <div class="card-body">
                 <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0 bg-opacity-10 p-3 rounded">
-                        <i class="bi bi-chat-dots text-info" style="font-size: 1.5rem;"></i>
+                    <div class="flex-shrink-0 bg-opacity-10 bg-info p-3 rounded">
+                        <i class="bi  bi-chat-dots text-info" style="font-size: 1.5rem;"></i>
                     </div>
                     <div class="ms-3">
-                        <h6 class="card-title text-muted mb-0">Konsultasi Baru</h6>
+                        <h6 class="card-title  text-muted mb-0">Konsultasi Baru</h6>
                         <h2 class="mt-2 mb-0">{{ jumlahKonsultasiBaru }}</h2>
                     </div>
                 </div>

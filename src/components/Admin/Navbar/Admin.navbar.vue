@@ -34,9 +34,9 @@
                             <i class="bi bi-chat-dots me-1"></i>Komunikasi
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="konsultasi-petugas.html">Konsultasi</a></li>
-                            <li><a class="dropdown-item" href="darurat-petugas.html">Laporan Darurat</a></li>
-                            <li><a class="dropdown-item" href="chat-petugas.html">Chat</a></li>
+                            <li><a class="dropdown-item" href="admin-konsultasi">Konsultasi</a></li>
+                            <li><a class="dropdown-item" href="#">Laporan Darurat</a></li>
+                            <li><a class="dropdown-item" href="#">Chat</a></li>
                         </ul>
                     </li>
                     <!-- <li class="nav-item">

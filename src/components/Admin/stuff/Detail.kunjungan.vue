@@ -1,5 +1,5 @@
 <template>
-  <Navbar/>
+  <AdminNavbar/>
   <div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
     <div class="card shadow-sm w-100" style="max-width: 600px;">
       <div class="card-header bg-white">
@@ -43,6 +43,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { links } from '../../../configs/hooks'
 import Navbar from '../../Navbar/Navbar.vue'
 import Footer from '../../Footer/Footer.vue'
+import AdminNavbar from '../Navbar/Admin.navbar.vue'
 
 const route = useRoute()
 const router = useRouter()

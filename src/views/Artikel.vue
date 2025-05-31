@@ -15,7 +15,6 @@
       </div>
     </div>
 
-    <!-- Search & Filter -->
     <div class="row mb-4">
       <div class="col-md-8">
         <div class="input-group">
@@ -37,7 +36,6 @@
       </div>
     </div>
 
-    <!-- Featured Artikel -->
     <div v-if="featuredArtikel" class="card mb-4 shadow-sm">
       <div class="row g-0">
         <div class="col-md-4">
@@ -63,7 +61,6 @@
       </div>
     </div>
 
-    <!-- List Artikel -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
       <div v-for="artikel in paginatedArticles" :key="artikel.id" class="col">
         <div class="card h-100 shadow-sm">
@@ -86,7 +83,6 @@
       </div>
     </div>
 
-    <!-- Pagination -->
     <nav v-if="totalPages > 1" aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         <li class="page-item" :class="{ disabled: currentPage === 1 }">
@@ -135,14 +131,12 @@ const filteredArticles = computed(() => {
   })
 })
 
-// Pagination
 const totalPages = computed(() => Math.ceil(filteredArticles.value.length / itemsPerPage))
 const paginatedArticles = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage
   return filteredArticles.value.slice(start, start + itemsPerPage)
 })
 
-// Format tanggal
 function formatDate(dateStr) {
   const options = { year: 'numeric', month: 'short', day: 'numeric' }
   return new Date(dateStr).toLocaleDateString('id-ID', options)

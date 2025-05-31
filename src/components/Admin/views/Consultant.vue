@@ -1,6 +1,6 @@
 <template>
+  <AdminNavbar/>
   <div class="container py-4">
-    <!-- Breadcrumb dan header -->
     <div class="row mb-4">
       <div class="col-12">
         <nav aria-label="breadcrumb">
@@ -11,9 +11,9 @@
         </nav>
         <div class="d-flex justify-content-between align-items-center">
           <h2 class="mb-0">Daftar Konsultasi</h2>
-          <button class="btn btn-outline-primary" @click="exportData">
+          <!-- <button class="btn btn-outline-primary" @click="exportData">
             <i class="bi bi-download me-1"></i>Export Data
-          </button>
+          </button> -->
         </div>
         <p class="text-muted">Kelola konsultasi kesehatan siswa</p>
       </div>
@@ -115,27 +115,75 @@
         </div>
       </div>
     </div>
+    <!-- Modal-Jawab -->
 
-    <!-- Modal jawab/detail bisa ditambahkan di sini -->
+
   </div>
+
+  <Footer/>
+
+
+    <div class="modal fade" id="jawabModal" tabindex="-1" aria-labelledby="jawabModalLabel" aria-hidden="true" ref="jawabModalRef">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="jawabModalLabel">Jawab Konsultasi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form @submit.prevent="simpanJawaban">
+              <div class="mb-3">
+                <label class="form-label">Pertanyaan</label>
+                <input type="text" class="form-control" :value="currentConsultation?.pertanyaan" readonly />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Jawaban</label>
+                <textarea class="form-control" rows="6" v-model="jawabanText" required></textarea>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary">Kirim Jawaban</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import AdminNavbar from '../Navbar/Admin.navbar.vue'
+import Footer from '../../Footer/Footer.vue'
 import { links } from '../../../configs/hooks'
+import 'bootstrap/dist/js/bootstrap.bundle'
+import router from '../../../router'
 
 const consultationData = ref([])
-
-onMounted(() => {
-  links.get('konsultasi').then((res) => {
-    consultationData.value = res.data
-  })
-})
-
+const siswaaktif = ref([])
 const filters = ref({
   status: '',
   kelas: '',
   search: '',
+})
+
+
+function lihatDetail(item) {
+  router.push(`/detail-consultant/${item.id}`)
+}
+
+
+const currentConsultation = ref(null)
+const jawabanText = ref('')
+const jawabModalRef = ref(null)
+
+onMounted(() => {
+  links.get('user').then((res) => {
+    siswaaktif.value = res.data.data
+  })
+
+  links.get('konsultasi').then((res) => {
+    consultationData.value = res.data
+  })
 })
 
 const filteredConsultations = computed(() => {
@@ -163,14 +211,9 @@ const computedStats = computed(() => {
     { label: "Belum Dijawab", value: belum, color: "warning", icon: "envelope" },
     { label: "Sudah Dijawab", value: sudah, color: "success", icon: "envelope-open" },
     { label: "Total Konsultasi", value: consultationData.value.length, color: "primary", icon: "chat-left-text" },
-    { label: "Siswa Aktif", value: 75, color: "info", icon: "people" }, // Static / bisa diambil dari API
+    { label: "Siswa Aktif", value: siswaaktif, color: "info", icon: "people" },
   ]
 })
-
-const showJawabModal = ref(false)
-const showDetailModal = ref(false)
-const currentConsultation = ref(null)
-const jawabanText = ref('')
 
 function truncateText(text, maxLength = 60) {
   if (!text) return ''
@@ -190,37 +233,42 @@ function formatDate(dateStr) {
 }
 
 function applyFilters() {
-}
-
-function lihatDetail(item) {
-  currentConsultation.value = item
-  showDetailModal.value = true
+  // Filtering is reactive with v-model and computed
 }
 
 function jawabKonsultasi(item) {
   currentConsultation.value = item
-  jawabanText.value = ''
-  showJawabModal.value = true
+  jawabanText.value = item.jawaban || ''
+  const modalEl = jawabModalRef.value
+  if (modalEl) {
+    new bootstrap.Modal(modalEl).show()
+  }
 }
 
-function simpanJawaban() {
+async function simpanJawaban() {
   if (!jawabanText.value.trim()) {
     alert("Jawaban tidak boleh kosong!")
     return
   }
 
-  const index = consultationData.value.findIndex(c => c.id === currentConsultation.value.id)
-  if (index !== -1) {
-    consultationData.value[index].jawaban = jawabanText.value.trim()
-  }
-  
-  showJawabModal.value = false
-  jawabanText.value = ''
-  currentConsultation.value = null
-}
+  try {
+    const id = currentConsultation.value.id
+    const response = await links.put(`konsultasi/${id}`, {
+      jawaban: jawabanText.value.trim()
+    })
 
-function exportData() {
-  alert("Fitur export data belum diimplementasikan")
+    const index = consultationData.value.findIndex(c => c.id === id)
+    if (index !== -1) {
+      consultationData.value[index].jawaban = jawabanText.value.trim()
+    }
+
+    const modalInstance = bootstrap.Modal.getInstance(jawabModalRef.value)
+    modalInstance.hide()
+    alert("Jawaban berhasil disimpan!")
+  } catch (error) {
+    console.error("Gagal menyimpan jawaban:", error)
+    alert("Gagal menyimpan jawaban.")
+  }
 }
 </script>
 

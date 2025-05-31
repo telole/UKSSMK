@@ -3,7 +3,7 @@
     <div class="card h-100 border-success shadow-sm">
       <div class="card-body">
         <div class="d-flex align-items-center">
-          <div class="flex-shrink-0 bg-opacity-10 p-3 rounded">
+          <div class="flex-shrink-0 bg-success bg-opacity-10 p-3 rounded">
             <i class="bi bi-capsule text-success" style="font-size: 1.5rem;"></i>
           </div>
           <div class="ms-3">

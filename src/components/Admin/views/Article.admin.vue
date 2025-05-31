@@ -311,5 +311,4 @@ function hapusArtikel(id) {
 </script>
 
 <style scoped>
-/* Optional styling jika perlu */
 </style>

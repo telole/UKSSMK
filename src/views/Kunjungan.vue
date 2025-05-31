@@ -1,7 +1,6 @@
     <template>
     <Navbar />
     <div class="container py-4">
-        <!-- Breadcrumb + Header -->
         <div class="mb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -113,18 +112,7 @@
 
     const currentPage = ref(1);
     const itemsPerPage = 5;
-
-    // const gejalaKiri = ref([
-    //   { id: "batuk", label: "Batuk" },
-    //   { id: "pilek", label: "Pilek" },
-    //   { id: "sakit_kepala", label: "Sakit Kepala" },
-    // ]);
-
-    // const gejalaKanan = ref([
-    //   { id: "demam", label: "Demam" },
-    //   { id: "mual", label: "Mual" },
-    //   { id: "pusing", label: "Pusing" },
-    // ]);
+    
 
     const tanggalSekarang = new Date().toISOString().slice(0, 16);
 

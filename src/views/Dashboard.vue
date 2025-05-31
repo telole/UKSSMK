@@ -11,7 +11,6 @@
       <UrgentCallsCard />
     </div>
 
-    <!-- Recent Activities -->
     <div class="row mb-4">
       <div class="col-lg-8">
         <div class="card shadow-sm">
@@ -51,7 +50,6 @@
         </div>
       </div>
 
-      <!-- Artikel Terbaru -->
       <div class="col-lg-4 mt-4 mt-lg-0">
         <div class="card shadow-sm">
           <div class="card-header">
@@ -100,7 +98,6 @@ const data = ref([]);
 const consul = ref([]);
 const artikel = ref([]);
 
-// computed untuk ambil 5 artikel terbaru, diurutkan dari tanggal terbaru
 const artikelTerbaru = computed(() => {
   return artikel.value
     .slice()
