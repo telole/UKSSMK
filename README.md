@@ -43,8 +43,14 @@ Sistem UKS (Unit Kesehatan Sekolah) adalah aplikasi berbasis web untuk memudahka
     ```bash
     npm start
     ```
+    
 
 5. Akses aplikasi melalui `http://localhost:3000` di browser.
 
 ## Struktur Direktori
-
+/src
+/models # Model untuk database
+/routes # Endpoint API
+/controllers # Logika pengelolaan data
+/views # Tampilan aplikasi web
+/assets # Berkas statis (gambar, CSS, dll.)
