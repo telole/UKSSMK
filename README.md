@@ -1,24 +1,50 @@
-# Vue.js Project
+# Sistem UKS (Unit Kesehatan Sekolah)
 
-## Introduction
+## Deskripsi Proyek
 
-Vue.js is a progressive JavaScript framework used to build modern web applications. It focuses on the view layer and provides a flexible, simple, and efficient way to develop user interfaces. Vue.js is designed to be incrementally adoptable, making it easy to integrate with other projects or libraries. Its core library focuses on the view layer only, while other libraries can be used for more advanced features.
+Sistem UKS (Unit Kesehatan Sekolah) adalah aplikasi berbasis web untuk memudahkan manajemen kesehatan di sekolah. Aplikasi ini mendukung dua peran utama, **Siswa** dan **Petugas UKS**, dengan kontrol akses berbasis peran (RBAC) untuk membedakan hak akses antara siswa dan petugas. Fitur utama dari sistem ini mencakup pencatatan kunjungan UKS, manajemen obat, konsultasi online, artikel kesehatan, laporan darurat, serta dashboard statistik untuk memantau kesehatan sekolah.
 
-## Features
+## Fitur
 
-- **Reactive Data Binding**: Vue’s reactivity system makes it easy to synchronize data with the view.
-- **Component-Based Architecture**: Vue allows you to build applications using components, which are reusable and easy to manage.
-- **Directives**: Vue provides custom HTML attributes (directives) like `v-bind`, `v-for`, and `v-if` to simplify DOM manipulations.
-- **Vue Router**: A routing library for single-page applications (SPA), enabling dynamic navigation.
-- **Vuex**: A state management pattern for managing application state in large-scale applications.
-- **Transitions & Animations**: Vue allows you to apply transitions and animations to HTML elements when they are added, updated, or removed.
-- **Ecosystem**: Vue has a growing ecosystem with tools like Vue CLI, Vue Loader, and Vue Devtools to help with development.
+- **Registrasi dan Login**: Sistem memungkinkan siswa dan petugas UKS untuk melakukan registrasi dan login dengan kontrol akses berdasarkan peran.
+- **Pencatatan Kunjungan UKS**: Siswa dapat menginput keluhan kesehatan, dan petugas memberikan diagnosa serta tindakan yang dicatat dengan tanggal dan waktu kunjungan.
+- **Manajemen Obat**: Petugas dapat mengelola stok obat dan mencatat penggunaan obat terkait kunjungan.
+- **Artikel Kesehatan**: Petugas dapat membuat dan mengelola artikel edukasi kesehatan yang dapat dibaca oleh siswa.
+- **Konsultasi Online**: Siswa dapat mengajukan pertanyaan kesehatan kepada petugas yang dapat memberikan jawaban melalui sistem.
+- **Laporan Darurat**: Siswa dan petugas dapat melaporkan kejadian darurat kesehatan, dan petugas dapat menindaklanjutinya.
+- **Dashboard Statistik**: Visualisasi grafik untuk statistik kunjungan, penggunaan obat, dan laporan darurat kesehatan di sekolah.
 
-## Installation
+## Instalasi
 
-### Clone Repo
+### Prasyarat
 
-Clone Repo
+- Node.js (versi terbaru)
+- Database (MySQL atau MongoDB)
+  
+### Langkah-Langkah Instalasi
 
-```bash
-[<script src="https://cdn.jsdelivr.net/npm/vue@2.x"></script>](https://github.com/telole/UKSSMK.git)
+1. Clone repositori ini:
+
+    ```bash
+    git clone https://github.com/username/repository-name.git
+    cd repository-name
+    ```
+
+2. Install dependensi dengan npm:
+
+    ```bash
+    npm install
+    ```
+
+3. Konfigurasi database pada file konfigurasi sesuai dengan kebutuhan proyek.
+
+4. Jalankan server:
+
+    ```bash
+    npm start
+    ```
+
+5. Akses aplikasi melalui `http://localhost:3000` di browser.
+
+## Struktur Direktori
+
