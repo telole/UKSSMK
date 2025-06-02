@@ -133,13 +133,6 @@
         import CreateKunjungan from '../../Tabs/Create-Kunjungan.vue';
 import AdminNavbar from '../Navbar/Admin.navbar.vue';
 
-    // import { onMounted, ref, computed, watch } from 'vue';
-    // import Foo from '../components/Footer/Footer.vue';
-    // import Navbar from '../components/Navbar/Navbar.vue';
-    // import { links } from '../configs/hooks';
-    // import CreateKunjungan from '../components/Tabs/Create-Kunjungan.vue';
-    
-
     const data = ref([]);
     const search = ref("");
 

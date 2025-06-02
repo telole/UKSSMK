@@ -64,6 +64,12 @@ import router from '../../router';
  }
 
  </script>
- <style lang="">
-    
+ <style scoped>
+    .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    transition: all 0.2s ease;
+}
  </style>   

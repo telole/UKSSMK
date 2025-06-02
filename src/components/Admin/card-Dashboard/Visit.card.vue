@@ -13,7 +13,7 @@
         </div>
         <div class="mt-3 d-flex justify-content-between align-items-center">
           <span class="text-success"><i class="bi bi-arrow-up"></i> 12%</span>
-          <a href="kunjungan-petugas.html" class="text-decoration-none">Detail</a>
+          <a href="/admin-kunjungan" class="text-decoration-none">Detail</a>
         </div>
       </div>
     </div>

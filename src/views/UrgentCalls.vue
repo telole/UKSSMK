@@ -120,7 +120,10 @@
                         class="btn btn-sm btn-outline-primary"
                         @click="viewDetail(item)"
                       >
+                      <router-link class="text-decoration-none" :to="`/laporan/${item.id}`">
                         Detail
+                      </router-link>
+                        
                       </button>
                     </td>
                   </tr>

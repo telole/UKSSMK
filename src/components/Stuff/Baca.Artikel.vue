@@ -1,7 +1,6 @@
 <template>
     <Navbar/>
   <div class="container py-4" v-if="artikel">
-    <!-- Breadcrumb -->
     <nav aria-label="breadcrumb" class="mb-4">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
@@ -11,9 +10,7 @@
     </nav>
 
     <div class="row">
-      <!-- Artikel Utama -->
       <div class="col-lg-8">
-        <!-- Gambar & Header -->
         <div class="card shadow-sm mb-4">
           <img class="card-img-top" :src="`http://localhost:8000/storage/${artikel.gambar}`" :alt="artikel.judul" />
           <div class="card-body">
@@ -48,7 +45,6 @@
           </div>
         </div>
 
-        <!-- Isi Artikel -->
         <div class="card shadow-sm mb-4">
           <div class="card-body">
             <div class="article-content" v-html="formatIsi(artikel.isi)"></div>
@@ -56,7 +52,6 @@
         </div>
       </div>
 
-      <!-- Info Artikel -->
       <div class="col-lg-4">
         <div class="card shadow-sm mb-4">
           <div class="card-header">

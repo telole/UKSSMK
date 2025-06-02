@@ -13,7 +13,7 @@
         </div>
         <div class="mt-3 d-flex justify-content-between align-items-center">
           <span class="text-danger"><i class="bi bi-arrow-down"></i> 5%</span>
-          <RouterLink to="/obat-petugas" class="text-decoration-none">Detail</RouterLink>
+          <RouterLink to="/obat" class="text-decoration-none">Detail</RouterLink>
         </div>
       </div>
     </div>

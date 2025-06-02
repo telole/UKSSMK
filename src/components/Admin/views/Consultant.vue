@@ -233,7 +233,6 @@ function formatDate(dateStr) {
 }
 
 function applyFilters() {
-  // Filtering is reactive with v-model and computed
 }
 
 function jawabKonsultasi(item) {

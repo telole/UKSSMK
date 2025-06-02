@@ -35,8 +35,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="admin-konsultasi">Konsultasi</a></li>
-                            <li><a class="dropdown-item" href="#">Laporan Darurat</a></li>
-                            <li><a class="dropdown-item" href="#">Chat</a></li>
+                            <li><a class="dropdown-item" href="Urgent-Callls">Laporan Darurat</a></li>
                         </ul>
                     </li>
                     <!-- <li class="nav-item">
@@ -51,7 +50,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        <li><a class="dropdown-item" @click="Logout()"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -59,9 +58,26 @@
     </nav>
 </template>
 <script setup>
+function Logout() {
+    localStorage.removeItem('name');
+    localStorage.removeItem('token')
+    window.location.href = '/'
+    alert('Anda Telah Logout')
+}
+
 const name = localStorage.getItem('name');
 
+
 </script>
-<style lang="">
+<style scoped>
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    transition: all 0.2s ease;
+}
+
+
     
 </style>

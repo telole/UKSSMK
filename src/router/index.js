@@ -19,6 +19,8 @@ import ArticleAdmin from "../components/Admin/views/Article.admin.vue"
 import Consultant from "../components/Admin/views/Consultant.vue"
 import DetailConsultation from "../components/Admin/stuff/Detail.consultation.vue"
 import UrgentCallsAdmin from "../components/Admin/views/UrgentCalls.admin.vue"
+import DetailLaporan from "../components/Stuff/Detail-Laporan.vue"
+import DetailAdminLaporan from "../components/Admin/stuff/Detail.Admin-Laporan.vue"
 
 const routes = [
   {
@@ -127,6 +129,18 @@ const routes = [
       path : '/Urgent-Callls',
       name : 'njakbwj',
       component : UrgentCallsAdmin,
+      meta : {requiresAuth : true}
+    },
+    {
+      path : '/Laporan/:id',
+      name : 'jujujeje',
+      component : DetailLaporan,
+      meta : {requiresAuth : true}
+    },
+    {
+      path : '/Detail-calls/:id',
+      name : 'janjabe',
+      component : DetailAdminLaporan,
       meta : {requiresAuth : true}
     },
   
